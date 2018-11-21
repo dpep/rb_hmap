@@ -2,16 +2,15 @@ require 'minitest/autorun'
 require 'hmap'
 
 
-class HashTest < Minitest::Test
+class HmapTest < Minitest::Test
 
-  def test_Hash
+  def test_Hash_map
     data = {
       c: 2,
       b: 3,
       a: 1,
     }
 
-    # Hash.map
     assert_equal(
       data,
       Hash.map(data.keys) {|x| data[x]}
@@ -44,16 +43,29 @@ class HashTest < Minitest::Test
       { 1 => [ 2, 3 ] },
       Hash.map([1]) {|x| [ 2, 3 ] }
     )
+  end
 
-    # Hash.hmap
-    assert_equal(
-      { 2 => 3 },
-      Hash.hmap([1]) {|x| [ 2, 3 ] }
-    )
+
+  def test_Hash_hmap
+    data = {
+      c: 2,
+      b: 3,
+      a: 1,
+    }
 
     assert_equal(
       data,
       Hash.hmap(data) {|k, v| [k, v]}
+    )
+
+    assert_equal(
+      { a: 2, b: 6, c: 4 },
+      Hash.hmap(data) {|k, v| [k, v * 2]}
+    )
+
+    assert_equal(
+      { 1 => 2, 2 => 4 },
+      Hash.hmap([1, 2]) {|x| [ x, x * 2 ] }
     )
 
     assert_equal(
@@ -263,6 +275,5 @@ class HashTest < Minitest::Test
       data.hmap {|v| nil }[:abc]
     )
   end
-
 
 end
