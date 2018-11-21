@@ -26,11 +26,13 @@ class Hash
 
   # map the block's results back to a hash
   def hmap(&block)
-    clone.clear.merge Hash.hmap(self, &block)
+    clone.hmap!(&block)
   end
 
   def hmap!(&block)
-    replace hmap(&block)
+    data = Hash.hmap(self, &block)
+    clear
+    merge! data
   end
 
 
@@ -54,19 +56,10 @@ class Hash
   end
 
   def vmap!(&block)
-    # TODO: return value might be wrong...upgrade to `hmap!`?
     each do |k, v|
       self[k] = block.arity <= 1 ? block.call(v) : block.call(k, v)
     end
   end
 
-
-  private
-
-  # replace contents of hash with new stuff
-  def replace(hash)
-    clear
-    merge! hash
-  end
 
 end
