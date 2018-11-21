@@ -91,7 +91,7 @@ class HashTest < Minitest::Test
         b: 6,
         a: 2,
       },
-      data.hmap {|k,v| [k, v * 2]}
+      data.hmap {|k, v| [k, v * 2]}
     )
 
     assert_equal(
@@ -100,17 +100,17 @@ class HashTest < Minitest::Test
         bb: 6,
         aa: 2,
       },
-      data.hmap {|k,v| [(k.to_s * 2).to_sym, v * 2]}
+      data.hmap {|k, v| [(k.to_s * 2).to_sym, v * 2]}
     )
 
     assert_equal(
       {},
-      {}.hmap {|k,v| [k, v * 2]}
+      {}.hmap {|k, v| [k, v * 2]}
     )
 
     assert_equal(
       {},
-      {a: 1}.hmap {|k,v| nil}
+      {a: 1}.hmap {|k, v| nil}
     )
 
 
@@ -120,7 +120,7 @@ class HashTest < Minitest::Test
         b: 6,
         a: 2,
       },
-      data.hmap! {|k,v| [k, v * 2]}
+      data.hmap! {|k, v| [k, v * 2]}
     )
     assert_equal(
       {
@@ -160,7 +160,7 @@ class HashTest < Minitest::Test
         'bb' => 2,
         'cc' => 3,
       },
-      data.kmap {|k,v| k * 2}
+      data.kmap {|k, v| k * 2}
     )
 
     assert_equal(
@@ -169,7 +169,7 @@ class HashTest < Minitest::Test
         'bb' => 2,
         'cc' => 3,
       },
-      data.kmap! {|k,v| k * 2}
+      data.kmap! {|k, v| k * 2}
     )
     assert_equal(
       {
@@ -213,7 +213,7 @@ class HashTest < Minitest::Test
         b: 4,
         c: 6,
       },
-      data.vmap {|k,v| v * 2}
+      data.vmap {|k, v| v * 2}
     )
 
     assert_equal(
@@ -222,7 +222,7 @@ class HashTest < Minitest::Test
         b: :b,
         c: :c,
       },
-      data.vmap {|k,v| k}
+      data.vmap {|k, v| k}
     )
 
 
