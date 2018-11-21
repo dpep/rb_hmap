@@ -1,47 +1,32 @@
-Rekey
+Hmap
 ======
 
-Reformat Enumerables into Hashes, using derived keys / values
+Improved Hash mapping functions
 
 #### Install
-```gem install rekey```
+# ```gem install hmap```
 
 
 #### Usage
 ```
-require 'rekey'
+require 'hmap'
 
-# key a list of records by id
-[
-  { id: 1, name: 'alice', age: 30},
-  { id: 2, name: 'bob', age: 24},
-  { id: 3, name: 'charlie', age: 88},
-].rekey :id
-=> {
-  1 => { id: 1, name: 'alice', age: 30},
-  2 => { id: 2, name: 'bob', age: 24},
-  3 => { id: 3, name: 'charlie', age: 88},
-}
+Hash.map [:a, :b, :c] do |v|
+  [ v, v ]
+end
+=> { a: :a, b: :b, c: :c }
 
+{
+  a: 1,
+  b: 2,
+  c: 3,
+}.vmap {|v| v * 2}
+=> { a: 2, b: 4, c: 6 }
 
-# create an id => value map from a list of records
-[
-  { id: 1, name: 'alice', age: 30},
-  { id: 2, name: 'bob', age: 24},
-  { id: 3, name: 'charlie', age: 88},
-].rekey :id, :name
-=> {
-  1 => 'alice',
-  2 => 'bob',
-  3 => 'charlie'
-}
-
-
-# or use blocks
-[ 2, 4, 6 ].rekey {|v| v / 2}
-=> { 
-  1 => 2,
-  2 => 4,
-  3 => 6
-}
+{
+  'a' => 1,
+  'b' => 2,
+  'c' => 3,
+}.kmap {|k, v| [ k * v, v ** 2 ] }
+=> { 'a' => 1, 'bb' => 4, 'ccc' => 9 }
 ```
