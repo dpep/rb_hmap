@@ -4,7 +4,7 @@ Hmap
 Improved Hash mapping functions
 
 #### Install
-# ```gem install hmap```
+gem coming soon
 
 
 #### Usage
