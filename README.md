@@ -15,7 +15,7 @@ Hash.map [:a, :bb, :ccc] {|v| v.length }
 => { a: 1, bb: 2, ccc: 3 }
 ```
 
-#### Hash.hmap
+#### hmap
 Map an Enumerable into a Hash, like Hash[obj.map ... ]
 ```
 Hash.hmap [ 1, 2, 3 ] { |v| [ v, v * 2 ] }
@@ -56,4 +56,11 @@ Transform the keys of a Hash
   'c' => 3,
 }.kmap {|k, v| k * v }
 => { 'a' => 1, 'bb' => 2, 'ccc' => 3 }
+
+{
+  'a' => 1,
+  'b' => 2,
+  'c' => 3,
+}.kmap &:to_sym
+=> { a: 1, b: 2, c: 3 }
 ```
