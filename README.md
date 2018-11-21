@@ -9,7 +9,7 @@ gem coming soon
 
 ### Usage
 #### Hash.map
-Create a Hash using an Enumerable and mapping it's items into hash values
+Create a Hash using an Enumerable by mapping it's items into hash values
 ```
 Hash.map [:a, :bb, :ccc] {|v| v.length }
 => { a: 1, bb: 2, ccc: 3 }
