@@ -4,7 +4,7 @@ Hmap
 Improved Hash mapping functions
 
 ### Install
-gem coming soon
+```gem install hmap```
 
 
 ### Usage
@@ -64,3 +64,7 @@ Transform the keys of a Hash
 }.kmap &:to_sym
 => { a: 1, b: 2, c: 3 }
 ```
+
+
+## Thanks To
+J. Pablo Fernández: https://github.com/pupeno/hmap
