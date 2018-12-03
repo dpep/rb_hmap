@@ -21,7 +21,7 @@ class Hash
       ]
     end
 
-  end # class << self
+  end  # class << self
 
 
   # map the block's results back to a hash
