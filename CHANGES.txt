@@ -1,4 +1,4 @@
-v4.0.0, 2018-10-08
+v1.0.0, 2018-12-03
     7a49250 better monkey patching tests
     9d94818 extend self
     574461c clean up arity handling, expand tests
