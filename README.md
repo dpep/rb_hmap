@@ -66,5 +66,8 @@ Transform the keys of a Hash
 ```
 
 
-## Thanks To
-J. Pablo Fernández: https://github.com/pupeno/hmap
+## 
+Thanks to [J. Pablo Fernández](https://github.com/pupeno/hmap)
+
+----
+![Gem](https://img.shields.io/gem/dt/hmap?style=plastic)
