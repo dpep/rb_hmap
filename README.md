@@ -71,3 +71,4 @@ Thanks to [J. Pablo Fernández](https://github.com/pupeno/hmap)
 
 ----
 ![Gem](https://img.shields.io/gem/dt/hmap?style=plastic)
+[![codecov](https://codecov.io/gh/dpep/rb_hmap/branch/main/graph/badge.svg)](https://codecov.io/gh/dpep/rb_hmap)
