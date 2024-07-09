@@ -16,11 +16,11 @@ Gem::Specification.new do |s|
   s.description = 'Improved Hash mapping functions'
   s.homepage    = "https://github.com/dpep/rb_#{package_name}"
   s.license     = 'MIT'
+  s.files       = `git ls-files * ':!:spec'`.split("\n")
 
-  s.files       = Dir.glob('lib/**/*')
-  s.test_files  = Dir.glob('test/**/test_*')
+  s.required_ruby_version = ">= 3"
 
-  s.add_development_dependency 'byebug'
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'rake'
+  s.add_development_dependency 'byebug', '>= 11'
+  s.add_development_dependency 'rspec', '>= 3.10'
+  s.add_development_dependency 'simplecov', '>= 0.22'
 end
