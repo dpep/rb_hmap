@@ -10,14 +10,14 @@ Improved Hash mapping functions
 ### Usage
 #### Hash.map
 Create a Hash using an Enumerable by mapping it's items into corresponding hash values
-```
+```ruby
 Hash.map [:a, :bb, :ccc] {|v| v.length }
 => { a: 1, bb: 2, ccc: 3 }
 ```
 
 #### hmap
 Map an Enumerable into a Hash, like Hash[obj.map ... ]
-```
+```ruby
 Hash.hmap [ 1, 2, 3 ] { |v| [ v, v * 2 ] }
 => { 1 => 2, 2 => 4, 3 => 6 }
 
@@ -31,7 +31,7 @@ Hash.hmap [ 1, 2, 3 ] { |v| [ v, v * 2 ] }
 
 #### vmap
 Transform the values of a Hash
-```
+```ruby
 {
   a: 1,
   b: 2,
@@ -49,7 +49,7 @@ Transform the values of a Hash
 
 #### kmap
 Transform the keys of a Hash
-```
+```ruby
 {
   'a' => 1,
   'b' => 2,
@@ -66,7 +66,7 @@ Transform the keys of a Hash
 ```
 
 
-## 
+##
 Thanks to [J. Pablo Fernández](https://github.com/pupeno/hmap)
 
 ----
