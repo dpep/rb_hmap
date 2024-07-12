@@ -1,5 +1,4 @@
-$LOAD_PATH.unshift File.expand_path("lib", __dir__)
-require "hmap/version"
+require File.expand_path("lib/hmap/version", __dir__)
 
 package = Hmap
 
