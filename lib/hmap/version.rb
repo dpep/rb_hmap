@@ -1,3 +1,3 @@
 module Hmap
-  VERSION = '1.0.0'
+  VERSION = Gem.loaded_specs["hmap"].version.to_s
 end

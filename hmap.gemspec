@@ -1,9 +1,3 @@
-$LOAD_PATH.unshift "lib"
-require "hmap/version"
-
-package = Hmap
-
-
 Gem::Specification.new do |s|
   s.authors     = ["Daniel Pepper"]
   s.description = "Improved Hash mapping functions"
@@ -12,7 +6,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
   s.name        = File.basename(__FILE__, ".gemspec")
   s.summary     = "Hmap"
-  s.version     = package.const_get "VERSION"
+  s.version     = "1.0.0"
 
   s.required_ruby_version = ">= 3"
 
