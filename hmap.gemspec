@@ -1,6 +1,4 @@
-require File.expand_path("lib/hmap/version", __dir__)
-
-package = Hmap
+require "./lib/hmap/version"
 
 
 Gem::Specification.new do |s|
@@ -11,7 +9,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
   s.name        = File.basename(__FILE__, ".gemspec")
   s.summary     = "Hmap"
-  s.version     = package.const_get "VERSION"
+  s.version     = Hmap::VERSION
 
   s.required_ruby_version = ">= 3"
 
