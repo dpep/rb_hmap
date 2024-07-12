@@ -1,6 +1,4 @@
 require_relative 'hmap/hmap'
+require_relative 'hmap/version'
 
-
-module Hmap
-  VERSION = '1.0.0'
-end
+Hash.extend(Hmap)
