@@ -1,12 +1,14 @@
+require_relative "lib/hmap/version"
+
 Gem::Specification.new do |s|
   s.authors     = ["Daniel Pepper"]
   s.description = "Improved Hash mapping functions"
   s.files       = `git ls-files * ":!:spec"`.split("\n")
   s.homepage    = "https://github.com/dpep/rb_hmap"
   s.license     = "MIT"
-  s.name        = File.basename(__FILE__, ".gemspec")
+  s.name        = "hmap"
   s.summary     = "Hmap"
-  s.version     = "1.0.1"
+  s.version     = Hmap::VERSION
 
   s.required_ruby_version = ">= 3"
 
