@@ -1,20 +1,22 @@
 module Hmap
   # create Hash from given keys and mapped values
   def map(obj, &block)
-    res = obj.map do |*args|
-      block.call(*args)
-    end
+    raise ArgumentError, "no block given" unless block
 
-    Hash[obj.zip res]
+    obj.zip(obj.map(&block)).to_h
   end
 
-  # map an Enumerable into a Hash, like Hash[obj.map ... ]
+  # map an Enumerable into a Hash, like obj.map { ... }.to_h
   def hmap(obj, &block)
-    Hash[
-      obj.map do |*args|
-        block.call(*args)
-      end.compact
-    ]
+    raise ArgumentError, "no block given" unless block
+
+    obj.map(&block).compact.to_h
+  end
+
+  # call with (key, value) if the block takes both, else just the one
+  def self.yield_pair(block, one, key, value)
+    positional = block.parameters.count { |type, _| type == :req || type == :opt }
+    positional >= 2 ? block.call(key, value) : block.call(one)
   end
 
   def self.extended(base)
@@ -40,8 +42,10 @@ module Hmap
     end
 
     def kmap!(&block)
+      raise ArgumentError, "no block given" unless block
+
       hmap! do |k, v|
-        [ block.arity <= 1 ? block.call(k) : block.call(k, v), v ]
+        [ Hmap.yield_pair(block, k, k, v), v ]
       end
     end
 
@@ -52,8 +56,10 @@ module Hmap
     end
 
     def vmap!(&block)
+      raise ArgumentError, "no block given" unless block
+
       each do |k, v|
-        self[k] = block.arity <= 1 ? block.call(v) : block.call(k, v)
+        self[k] = Hmap.yield_pair(block, v, k, v)
       end
     end
   end
