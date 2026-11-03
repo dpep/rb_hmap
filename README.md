@@ -9,7 +9,7 @@ Improved Hash mapping functions
 
 ### Usage
 #### Hash.map
-Create a Hash using an Enumerable by mapping it's items into corresponding hash values
+Create a Hash using an Enumerable by mapping its items into corresponding hash values
 ```ruby
 Hash.map [:a, :bb, :ccc] {|v| v.length }
 => { a: 1, bb: 2, ccc: 3 }
@@ -44,7 +44,7 @@ Transform the values of a Hash
   b: 2,
   c: 3,
 }.vmap &:to_s
-=> { a: '2', b: '4', c: '6' }
+=> { a: '1', b: '2', c: '3' }
 ```
 
 #### kmap

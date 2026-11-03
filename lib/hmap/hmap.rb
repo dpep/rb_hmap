@@ -24,7 +24,7 @@ module Hmap
   module InstanceMethods
     # map the block's results back to a hash
     def hmap(&block)
-      clone.hmap!(&block)
+      dup.hmap!(&block)
     end
 
     def hmap!(&block)
@@ -36,7 +36,7 @@ module Hmap
     # map keys, but preserve associated values
     # ie. http://apidock.com/rails/v4.2.7/Hash/transform_keys
     def kmap(&block)
-      clone.kmap!(&block)
+      dup.kmap!(&block)
     end
 
     def kmap!(&block)
@@ -48,7 +48,7 @@ module Hmap
     # map values, but preserve associated keys
     # ie. http://apidock.com/rails/v4.2.7/Hash/transform_values
     def vmap(&block)
-      clone.vmap!(&block)
+      dup.vmap!(&block)
     end
 
     def vmap!(&block)

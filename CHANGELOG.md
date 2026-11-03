@@ -1,5 +1,6 @@
 ## Unreleased
 - require Ruby >= 3.2
+- fix FrozenError from hmap, kmap, and vmap on frozen hashes
 
 ###  1.0.1  (2024-07-12)
 - fix changelog

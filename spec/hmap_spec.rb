@@ -213,47 +213,45 @@ describe Hmap do
     end
 
     it "maps" do
-      def test_vmap
-        expect(
-          data.vmap(&:to_f)
-        ).to eq(
-          {
-            a: 1.0,
-            b: 2.0,
-            c: 3.0,
-          },
-        )
+      expect(
+        data.vmap(&:to_f)
+      ).to eq(
+        {
+          a: 1.0,
+          b: 2.0,
+          c: 3.0,
+        },
+      )
 
-        expect(
-          data.vmap {|v| v * 2}
-        ).to eq(
-          {
-            a: 2,
-            b: 4,
-            c: 6,
-          },
-        )
+      expect(
+        data.vmap {|v| v * 2}
+      ).to eq(
+        {
+          a: 2,
+          b: 4,
+          c: 6,
+        },
+      )
 
-        expect(
-          data.vmap {|k, v| v * 2}
-        ).to eq(
-          {
-            a: 2,
-            b: 4,
-            c: 6,
-          },
-        )
+      expect(
+        data.vmap {|k, v| v * 2}
+      ).to eq(
+        {
+          a: 2,
+          b: 4,
+          c: 6,
+        },
+      )
 
-        expect(
-          data.vmap {|k, v| k}
-        ).to eq(
-          {
-            a: :a,
-            b: :b,
-            c: :c,
-          },
-        )
-      end
+      expect(
+        data.vmap {|k, v| k}
+      ).to eq(
+        {
+          a: :a,
+          b: :b,
+          c: :c,
+        },
+      )
     end
 
     describe "Hash#vmap!" do
@@ -303,6 +301,20 @@ describe Hmap do
       expect(
         data.hmap {|v| nil }[:abc]
       ).to eq default
+    end
+  end
+
+  describe "frozen hashes" do
+    let(:data) { { a: 1 }.freeze }
+
+    it "maps without mutating" do
+      expect(data.hmap {|k, v| [k, v * 2] }).to eq(a: 2)
+      expect(data.kmap(&:to_s)).to eq("a" => 1)
+      expect(data.vmap {|v| v * 2 }).to eq(a: 2)
+    end
+
+    it "returns unfrozen results" do
+      expect(data.vmap {|v| v }).not_to be_frozen
     end
   end
 end
