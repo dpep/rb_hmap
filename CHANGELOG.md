@@ -1,3 +1,6 @@
+## Unreleased
+- require Ruby >= 3.2
+
 ###  1.0.1  (2024-07-12)
 - fix changelog
 - rebuild
