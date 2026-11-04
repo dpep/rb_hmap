@@ -317,4 +317,31 @@ describe Hmap do
       expect(data.vmap {|v| v }).not_to be_frozen
     end
   end
+
+  describe "without a block" do
+    it "raises ArgumentError" do
+      expect { Hash.map([1]) }.to raise_error(ArgumentError)
+      expect { Hash.hmap([1]) }.to raise_error(ArgumentError)
+
+      # even when empty, so the error doesn't depend on the data
+      %i[hmap hmap! kmap kmap! vmap vmap!].each do |meth|
+        expect { {}.send(meth) }.to raise_error(ArgumentError)
+      end
+    end
+  end
+
+  describe "blocks with an optional second param" do
+    let(:data) { { "a" => 1 } }
+
+    it "passes the key and value" do
+      expect(data.kmap {|k, v = 0| k * (v + 1) }).to eq("aa" => 1)
+      expect(data.vmap {|k, v = 0| k * v }).to eq("a" => "a")
+    end
+  end
+
+  describe "malformed pairs" do
+    it "raises instead of filling in nil" do
+      expect { Hash.hmap([1]) {|x| [x] } }.to raise_error(ArgumentError)
+    end
+  end
 end
