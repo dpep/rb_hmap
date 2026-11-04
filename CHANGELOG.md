@@ -1,4 +1,4 @@
-## Unreleased
+### 1.1.0  (2026-11-03)
 - require Ruby >= 3.2
 - fix FrozenError from hmap, kmap, and vmap on frozen hashes
 - raise ArgumentError when called without a block
