@@ -60,7 +60,7 @@ DEPENDENCIES
   hmap!
   rspec (>= 3.10)
   rspec-debugging
-  simplecov (>= 0.22)
+  simplecov (>= 1)
 
 BUNDLED WITH
    2.5.15
