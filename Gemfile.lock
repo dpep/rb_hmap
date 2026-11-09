@@ -12,7 +12,7 @@ GEM
     diff-lcs (1.6.2)
     erb (6.0.7)
     io-console (0.9.5)
-    irb (1.18.0)
+    irb (1.19.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
@@ -22,7 +22,7 @@ GEM
       prettyprint
     prettyprint (0.2.1)
     prism (2.1.0)
-    rbs (4.2.0)
+    rbs (4.1.3)
       logger
       prism (>= 1.6.0)
       tsort
@@ -37,9 +37,9 @@ GEM
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.6)
+    rspec-core (3.13.7)
       rspec-support (~> 3.13.0)
-    rspec-debugging (0.0.5)
+    rspec-debugging (0.0.6)
       debug (>= 1.10)
       rspec-core (>= 3.10)
     rspec-expectations (3.13.5)
@@ -48,7 +48,7 @@ GEM
     rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-support (3.13.7)
+    rspec-support (3.13.8)
     simplecov (1.3.2)
     tsort (0.2.0)
 
